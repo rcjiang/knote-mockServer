@@ -58,7 +58,12 @@ function registerApi (filename, noCache = false) {
   if (path.extname(filename) !== '.js') {
     return;
   }
-  const config = noCache ? hotRequire(filename) : require(filename)
+  let config
+  try {
+    config = noCache ? hotRequire(filename) : require(filename)
+  } catch {
+    return
+  }
   const configs = parseApiConfig(config, filename)
   configs.forEach(item => {
     const key = `${item.method}-${item.pathRegexp.toString()}`
