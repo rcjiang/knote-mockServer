@@ -10,16 +10,13 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/api/enrityList', (req, res) => {
-  res.send([
-    {
-      name: '作品',
-    },
-    {
-      name: '作者',
-    },
-    {
-      name: '体裁',
-    }
-  ])
+app.use(express.json())
+app.use(express.urlencoded({
+  extended: true
+}))
+
+const { mock, loadMockApi } = require('./mock/index.js')
+loadMockApi()
+app.use('/api', (req, res) => {
+  mock(req, res)
 })
