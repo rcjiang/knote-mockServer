@@ -2,12 +2,10 @@ const example = [
   {
     id: '1',
     label: 'All Mail',
-    icon: 'MailIcon'
   },
   {
     id: '2',
     label: 'Trash',
-    icon: 'DeleteIcon'
   },
   {
     id: '3',
@@ -16,7 +14,6 @@ const example = [
       {
         id: '5',
         label: 'Social',
-        icon: 'SupervisorAccountIcon',
         labelInfo: '90',
         color: '#1a73e8',
         bgColor: '#e8f0fe'
@@ -24,7 +21,6 @@ const example = [
       {
         id: '6',
         label: 'Updates',
-        icon: 'InfoIcon',
         labelInfo: '2,294',
         color: '#e3742f',
         bgColor: '#fcefe3'
@@ -32,7 +28,6 @@ const example = [
       {
         id: '7',
         label: 'Forums',
-        icon: 'ForumIcon',
         labelInfo: '3,566',
         color: '#a250f5',
         bgColor: '#f3e8fd'
@@ -40,7 +35,6 @@ const example = [
       {
         id: '8',
         label: 'Promotions',
-        icon: 'LocalOfferIcon',
         labelInfo: '733',
         color: '#3c8039',
         bgColor: '#e6f4ea'
@@ -54,6 +48,66 @@ const example = [
 ]
 
 const data1 = [
+  {
+    id: 'LaoZi',
+    label: '老子',
+  },
+  {
+    id: 'KongZi',
+    label: '孔子',
+  },
+  {
+    id: 'LiSi',
+    label: '李斯'
+  },
+  {
+    id: 'JiaYi',
+    label: '贾谊'
+  },
+  {
+    id: 'CaiYong',
+    label: '蔡邕'
+  },
+  {
+    id: 'CaoCao',
+    label: '曹操'
+  },
+  {
+    id: 'ZhiGeLiang',
+    label: '诸葛亮'
+  }
+]
+
+const data2 = [
+  {
+    id: '1',
+    label: '春秋战国'
+  },
+  {
+    id: '2',
+    label: '秦'
+  },
+  {
+    id: '3',
+    label: '汉',
+    children: [
+      {
+        id: '31',
+        label: '西汉'
+      },
+      {
+        id: '32',
+        label: '东汉'
+      },
+      {
+        id: '33',
+        label: '三国'
+      },
+    ]
+  }
+]
+
+const data3 = [
   {
     id: '1',
     label: '诗',
@@ -105,5 +159,7 @@ const data1 = [
 
 module.exports = {
   example,
-  data1
+  data1,
+  data2,
+  data3
 }
