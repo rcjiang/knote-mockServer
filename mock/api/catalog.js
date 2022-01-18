@@ -26,7 +26,7 @@ function flatTree (data, parent = []) {
       parents: parent
     })
     if (children && children.length) {
-      flatList.push(flatTree(children), parent.concat(others.id))
+      flatList = flatList.concat(flatTree(children, parent.concat(others.id)))
     }
     return flatList
   }, [])
