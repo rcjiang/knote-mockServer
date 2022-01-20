@@ -1,10 +1,10 @@
-const { hotRequire } = require('../utils')
+const hotRequire = require('../hotRequire')
 exports.a = {
   path: 'catalog',
   method: 'GET',
   handle (req) {
     const { id } = req.query
-    const { data } = hotRequire('./data/catalog.js')
+    const { data } = hotRequire('data/catalog.js')
     const flatData = flatTree(data)
     const match = flatData.find(item => item.id === id)
 

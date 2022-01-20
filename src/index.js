@@ -6,6 +6,7 @@ const API_MAP = new Map();
 // 模拟api
 function mock (req, res) {
   const { path, method } = req
+  console.log(API_MAP)
   const api = [...API_MAP.values()].find(
     item => item.method === method && item.pathRegexp.test(path)
   )
@@ -61,7 +62,8 @@ function registerApi (filename, noCache = false) {
   let config
   try {
     config = noCache ? hotRequire(filename) : require(filename)
-  } catch {
+  } catch(e) {
+    console.warn(`register api fail: ${filename}`)
     return
   }
   const configs = parseApiConfig(config, filename)
@@ -95,7 +97,8 @@ function parseApiConfig (config, filename) {
 
 // 执行加载动作
 function loadMockApi (folder = './api') {
-  const folderPath = path.join(__dirname ,folder)
+  const folderPath = path.resolve(folder)
+  console.log(folderPath)
   loadAPiByFolder(folderPath)
   watchApiFolder(folderPath)
 }
