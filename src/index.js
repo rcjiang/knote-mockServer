@@ -95,15 +95,11 @@ function parseApiConfig (config, filename) {
   }).filter(item => item.pathRegexp instanceof RegExp)
 }
 
-// 执行加载动作
-function loadMockApi (folder = './api') {
+function createUseMock (folder = './api') {
   const folderPath = path.resolve(folder)
-  console.log(folderPath)
   loadAPiByFolder(folderPath)
   watchApiFolder(folderPath)
+  return mock
 }
 
-module.exports = {
-  mock,
-  loadMockApi
-}
+module.exports = createUseMock

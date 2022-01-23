@@ -1,6 +1,6 @@
 const express = require('express')
 const path = require('path')
-const { mock, loadMockApi } = require('./src/index.js')
+const createUseMock = require('./src/index.js')
 
 const port = 4000
 const basePath = path.resolve('./mock/api')
@@ -22,8 +22,4 @@ app.use(express.urlencoded({
   extended: true
 }))
 
-app.use(mockPath, (req, res) => {
-  mock(req, res)
-})
-
-loadMockApi(basePath)
+app.use(mockPath, createUseMock(basePath))
